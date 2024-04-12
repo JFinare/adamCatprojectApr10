@@ -22,7 +22,14 @@ function preload(src) {
 }
 
 // ??????????????
-let cache = null;
+let cache;
+
+async function getCachedCat(){
+  if (!cache){
+    cache = await fetchCat();
+  }
+}
+
 
 async function fetchCat() {
   const response = await fetch(url);
